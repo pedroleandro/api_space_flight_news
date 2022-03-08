@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+    app:
+        build: .
+        ports:
+            - "5000:80"
+        volumes:
+            - ./:/var/www
+        networks:
+            - network-space-flight-news
+        depends_on:
+            - db
+
+    db:
+        image: postgres:latest
+        restart: always
+        ports:
+            - "5004:5432"
+        volumes:
+            - .docker/dbdata:/var/lib/postgresql
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: api_space_flight_news
+        networks:
+            - network-space-flight-news
+
+networks:
+    network-space-flight-news:
+        driver: bridge
