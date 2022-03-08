@@ -5,8 +5,9 @@ Este é um desafio para que possam ver as minhas habilidades como Back-end Devel
 ## Tecnologias utilizadas
 
 - [PHP Framework Laravel](https://laravel.com/)
-- [Mysql](https://www.mysql.com/)
 - [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
+- [PostgreSQl](https://www.postgresql.org/)
 
 ## Instruções de instalação
 
@@ -17,6 +18,18 @@ Este é um desafio para que possam ver as minhas habilidades como Back-end Devel
 ### Acesse a pasta do projeto
 
 `cd api_space_flight_news/`
+
+### Executando com docker
+
+`docker-compose build app`
+
+### Subindo containers
+
+`docker-compose up -d`
+
+### Acessando container da aplicação
+
+`docker exec -it api_space_flight_news_app_1 bash`
 
 ### Execute o comando artisan para gerar chave do projeto
 
@@ -32,14 +45,14 @@ Este é um desafio para que possam ver as minhas habilidades como Back-end Devel
 
 ### Altere as variáveis do banco de dados
 
-Altere de acordo com o banco de dados na sua máquina
+As variaveis de ambiente já estão com esses mesmos valores
 
-- `DB_CONNECTION=mysql`
-- `DB_HOST=localhost`
-- `DB_PORT=3306`
-- `DB_DATABASE=dbname`
-- `DB_USERNAME=username`
-- `DB_PASSWORD=secret`
+- `DB_CONNECTION=pgsql`
+- `DB_HOST=db`
+- `DB_PORT=5432`
+- `DB_DATABASE=api_space_flight_news`
+- `DB_USERNAME=root`
+- `DB_PASSWORD=root`
 
 ### Execute as migrações
 
@@ -52,6 +65,10 @@ Altere de acordo com o banco de dados na sua máquina
 ### Execute o projeto
 
 `php artisan serve`
+
+### Projeto rodando na porta 5000
+
+`http://localhost:5000`
 
 ## Code challenge
 >  This is a challenge by [Coodesh](https://coodesh.com/)
